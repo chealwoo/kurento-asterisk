@@ -28,7 +28,7 @@ var SIP = require('sip.js');
 var argv = minimist(process.argv.slice(2), {
   default: {
       as_uri: "https://localhost:8443/",
-      ws_uri: "ws://107.22.152.22:8111/kurento"
+      ws_uri: "ws://10.22.111.72:8888/kurento"
   }
 });
 
@@ -51,7 +51,7 @@ var userRegistry = new UserRegistry();
 var pipelines = {};
 var candidatesQueue = {};
 var idCounter = 0;
-var sipServer = '107.22.152.22';
+var sipServer = '10.22.111.62';
 
 function nextUniqueId() {
     idCounter++;
@@ -536,7 +536,7 @@ function register(id, ext, password, ws, callback) {
         uri: `sip:${ext}@${sipServer}`,
         wsServers: [`ws://${sipServer}:8088/ws`],
         authorizationUser: ext,
-        stunServers: ['stun:107.22.152.22:3478'],
+        stunServers: ['stun:stun3.l.google.com:19302'],
         password,
         mediaHandlerFactory: makeHandlerFactory(ext),
         hackIpInContact: true,
