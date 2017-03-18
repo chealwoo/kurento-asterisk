@@ -31,9 +31,22 @@ $ sudo apt-get install python-software-properties
 $ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 $ sudo apt-get install nodejs
 
+upgrade nodejs (http://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version)
+---------------------------------------------------------------------------------------
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
 
+sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node 
+To upgrade to latest version (and not current stable) version, you can use
 
+sudo n latest
+To undo:
 
+sudo apt-get install --reinstall nodejs-legacy     # fix /usr/bin/node
+sudo n rm 6.0.0     # replace number with version of Node that was installed
+sudo npm uninstall -g n
+---------------------------------------------------------------------------------------
 
 
 
@@ -46,7 +59,7 @@ https://webrtc.ventures/2017/02/kurento-asterisk-powerful-couple/
 
 Install Setup Asterisk with WebRTC
 
-1. down load Asterisk
+1. down load Asterisk  (my version is 14.3.0)
 $ wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz
 
 2. install dependency
