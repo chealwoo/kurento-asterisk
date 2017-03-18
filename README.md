@@ -38,8 +38,6 @@ $ sudo apt-get install nodejs
 
 
 
-
-
 -- System Installation 
 
 Following document of
@@ -73,12 +71,15 @@ Called with a SDP without ice-ufrag and ice-pwd (http://forums.asterisk.org/view
 Called with a SDP without ice-ufrag and ice-pwd (https://community.asterisk.org/t/called-with-a-sdp-without-ice-ufrag-and-ice-pwd/46021)
 SetRemoteDescription failed: Called with an SDP without ice-
 
+2.2
+opus codec (https://community.asterisk.org/t/asterisk14-opus-transcoding/68601/5)
 
 
-3. unzip Asterisk source 
+3. unzip, make, and install Asterisk source 
+3.1
 $ tar zxfv asterisk-14-current.tar.gz
 
-4. To build Asterisk, follow the page
+3.2 To build Asterisk, follow the page
 *WebRTC tutorial using SIPML5* (https://wiki.asterisk.org/wiki/display/AST/WebRTC+tutorial+using+SIPML5)
 ---------------------------------------------------------------------------------------
 sudo apt-get install build-essential libncurses5-dev libxml2-dev libsqlite3-dev libssl-dev libsrtp0-dev uuid-dev
@@ -93,7 +94,7 @@ sudo make install
 sudo make samples
 ---------------------------------------------------------------------------------------
 
-
+4. Configuration.
 4.1 Enable tls, https, wss
 SIPML5 connection to Asterisk 13 over wss (http://serverfault.com/questions/748428/sipml5-connection-to-asterisk-13-over-wss)
 
