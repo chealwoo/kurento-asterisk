@@ -27,11 +27,9 @@ stunaddr=stun.l.google.com:19302
 
 
 enalbe tls
-
-openssl req -new -x509 -days 365 -nodes -out /etc/asterisk/keys/foo.pem -keyout /etc/asterisk/keys/foo.pem
-
-
 mkdir /etc/asterisk/keys
+openssl req -new -x509 -days 365 -nodes -out /etc/asterisk/keys/foo.pem -keyout /etc/asterisk/keys/foo.pem
+cd ~/asterisk-14.3.0/contrib/scripts
 ./ast_tls_cert -C pbx.mycompany.com -O "My Super Company" -d /etc/asterisk/keys
 ./ast_tls_cert -m client -c /etc/asterisk/keys/ca.crt -k /etc/asterisk/keys/ca.key -C phone1.mycompany.com -O "My Super Company" -d /etc/asterisk/keys -o malcolm
 

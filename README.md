@@ -154,6 +154,18 @@ Reference Pages
 ### 4.1 Enable tls, https, wss
 SIPML5 connection to Asterisk 13 over wss (http://serverfault.com/questions/748428/sipml5-connection-to-asterisk-13-over-wss)
 
+#### enalbe tls
+```
+mkdir /etc/asterisk/keys
+openssl req -new -x509 -days 365 -nodes -out /etc/asterisk/keys/foo.pem -keyout /etc/asterisk/keys/foo.pem
+```
+#### secure connection
+```
+cd ~/asterisk-14.3.0/contrib/scripts
+./ast_tls_cert -C pbx.mycompany.com -O "My Super Company" -d /etc/asterisk/keys
+./ast_tls_cert -m client -c /etc/asterisk/keys/ca.crt -k /etc/asterisk/keys/ca.key -C phone1.mycompany.com -O "My Super Company" -d /etc/asterisk/keys -o malcolm
+```
+
 ### 4.2 free stun servers
 stun.l.google.com:19302
 stun1.l.google.com:19302
